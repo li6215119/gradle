@@ -1,0 +1,39 @@
+1. Gradle运行机制，生命周期，钩子函数
+2. Groovy动态特性
+3. Gradle 任务，自定义插件
+4. Gradle 依赖管理：Gradle对于依赖的优化，产生冲突问题，怎么解决。
+5. Gradle build脚本的本质，就是project对象的操作。通过Groovy这种语法，还可以对project进行扩展 -> 最典型的应用AGP
+6. AGP 的基础设置，实现变种构建
+
+
+编译时字节码插桩：
+1. 怎么字节码插桩？
+	ASM ，Javassit
+2. 怎么在编译之后获取到这些class？
+	AGP transform，hook相关的Task
+
+
+稚晖君
+
+@AndroidEntryPoint
+MainActivity extend AppCompatActivity
+
+Hilt_MainActivity  :  apt生成的， 主要用来解决开发者大量编写dagger模板代码的问题。
+
+MainActivity extends Hilt_MainActivity
+
+
+打包慢： 工程太大了？ 组件化！插件化！
+	     第三方library很多？api， implemenetation
+	     渠道化打包：进行构建
+
+//====================================
+1. Gradle测试, 持续集成
+2. 构建优化
+3. build.gradle.kts
+4. 总结下Gradle内容
+
+
+JDK源码：
+
+Android  SparsArray, ArrayMap

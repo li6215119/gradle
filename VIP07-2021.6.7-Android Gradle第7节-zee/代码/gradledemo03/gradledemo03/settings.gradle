@@ -1,0 +1,2 @@
+rootProject.name = "gradledemo03"
+include ':app'

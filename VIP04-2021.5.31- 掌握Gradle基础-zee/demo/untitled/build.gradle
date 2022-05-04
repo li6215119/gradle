@@ -1,0 +1,110 @@
+apply from: 'config.gradle'
+
+task('hello') {
+    println "configuration hello.."
+}
+
+// Gradle3.0 << ，在4.x以上就废弃了
+task A {
+    println "configuration A.."
+
+    doFirst {
+        println "doFirst A.."
+    }
+//    doLast {
+//        println "doLast A1.."
+//    }
+//    doLast {
+//        println "doLast A2.."
+//    }
+//    doLast {
+//        println "doLast A3.."
+//    }
+}
+
+//A.doLast {
+//    println "doLast A4.."
+//}
+//
+//task C {
+//    println "configuration C.."
+//
+//    doLast {
+//        println "doLast C.."
+//    }
+//}
+//task B {
+//    println "configuration B.."
+//
+//    doLast {
+//        println "doLast B.."
+//    }
+//}
+
+//task hello2(dependsOn: [A, C, B]) {
+//    doLast {
+//        println "doLast hello2"
+//    }
+//}
+
+//A.dependsOn B
+//A.mustRunAfter(B)
+//A.shouldRunAfter B
+
+//task finalized {
+//    doLast {
+//        println "清理任务"
+//    }
+//}
+//
+//A.finalizedBy finalized
+
+//task xx {
+////
+////}
+////
+////xx.doLast{
+////
+////}
+////
+////println xx.class //org.gradle.api.DefaultTask_Decorated
+
+
+// 通过自定义任务类来实现自定义任务
+class MyTask extends DefaultTask {
+
+    @Input
+    String filePath // 可以指定filePath来传入n个文件的路径
+
+    @OutputFile
+    File file
+
+    MyTask() {
+        group "自定义任务"
+        description "自定义任务描述"
+    }
+
+    @TaskAction
+    void action() {
+        println "MyTask action()"
+    }
+
+    @TaskAction
+    void action2() {
+        println "MyTask action2()"
+    }
+
+}
+
+//tasks.create('myTask', MyTask){
+//
+//}
+
+task myTask2(type: MyTask) {
+    filePath = 'xxx/xxx'
+    file = file('test.txt')
+}
+
+
+// apk:  dex打包，apkbuilder, 加密/压缩，签名
+

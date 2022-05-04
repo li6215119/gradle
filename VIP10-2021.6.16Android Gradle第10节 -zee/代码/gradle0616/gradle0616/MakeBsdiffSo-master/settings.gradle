@@ -1,0 +1,3 @@
+rootProject.name='MakeBsdiffSo'
+include ':app'
+include ':libbsdiff'

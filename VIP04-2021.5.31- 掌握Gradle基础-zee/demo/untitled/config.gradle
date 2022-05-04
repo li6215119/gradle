@@ -1,0 +1,5 @@
+task CCCC {
+    doLast {
+        println "doLast.."
+    }
+}
